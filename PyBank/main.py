@@ -5,8 +5,6 @@ import csv
 # path to collect data from csv
 budgetcsv = os.path.join('C:/Users/EKR/Desktop/BootCampPy/python-challenge/PyBank/budget_data.csv')
 
-print("Financial Analysis")
-print("------------------------------")
 # read in csv file
 with open(budgetcsv, newline = "\n") as csvfile:
     # split data
@@ -19,7 +17,7 @@ with open(budgetcsv, newline = "\n") as csvfile:
         budgetlist.append(row)
 
     totalmonths = len(budgetlist)
-    print(f"Total Months: {totalmonths}")
+#    print(f"Total Months: {totalmonths}")
 
 
     # 2. The total net amount of "Profit/Losses" over the entire period
@@ -29,7 +27,7 @@ with open(budgetcsv, newline = "\n") as csvfile:
             profitloss += int(row[1])
         return profitloss
 
-    print(f"Total: ${totalnet(budgetlist)}")
+#    print(f"Total: ${totalnet(budgetlist)}")
 
 
     # 3. The average change in "Profit/Losses" between months over the entire period
@@ -38,7 +36,7 @@ with open(budgetcsv, newline = "\n") as csvfile:
         for row in data:
             profitlist.append(int(row[1]))
         return(round((profitlist[85] - profitlist[0]) / (len(profitlist) - 1), 2))
-    print(f"Average Change: ${monthchange(budgetlist)}")
+#    print(f"Average Change: ${monthchange(budgetlist)}")
 
     monthlist = []
     for row in budgetlist:
@@ -55,10 +53,30 @@ with open(budgetcsv, newline = "\n") as csvfile:
     changelist = []
     for i in range(1, len(profitlist2)):   #use range(1,len) because the first loop run will attempt row 0 - (-1 : last row of data)
         changelist.append(profitlist2[i] - (profitlist2[i-1]))
-    print(f"Greatest Increase in Profits: {max(changelist)}") # how to locate/return month associated
-    print(f"Greatest Decrease In Profits: {min(changelist)}") # how to locate/return month associated
+#    print(f"Greatest Increase in Profits: {max(changelist)}") # how to locate/return month associated
+#    print(f"Greatest Decrease In Profits: {min(changelist)}") # how to locate/return month associated
     #print(changelist)
 
+print(f"""
+      Financial Analysis
+      ------------------------------
+      Total Months: {totalmonths}
+      Total: ${totalnet(budgetlist)}
+      Average Change: ${monthchange(budgetlist)}
+      Greatest Increase in Profits: {max(changelist)}
+      Greatest Decrease In Profits: {min(changelist)}
+      """)
+
+with open('financialanalysis.txt', 'w') as f:
+    print(f"""
+          Financial Analysis
+          ------------------------------
+          Total Months: {totalmonths}
+          Total: ${totalnet(budgetlist)}
+          Average Change: ${monthchange(budgetlist)}
+          Greatest Increase in Profits: {max(changelist)}
+          Greatest Decrease In Profits: {min(changelist)}
+          """, file=f)
 
 ### BRAINSTORMING NOTES ###
         #profitloss = int(budgetcsv[1])

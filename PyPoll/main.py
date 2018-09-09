@@ -5,8 +5,8 @@ import csv
 # path to collect data from csv
 electioncsv = os.path.join('C:/Users/EKR/Desktop/BootCampPy/python-challenge/PyPoll/election_data.csv')
 
-print("Election Results")
-print("-----------------------------------")
+#print("Election Results")
+#print("-----------------------------------")
 
 # read in csv file
 with open(electioncsv, 'r') as csvfile:
@@ -21,8 +21,8 @@ with open(electioncsv, 'r') as csvfile:
         voteslist.append(row)
 
     totalvotes = len(voteslist)
-    print(f"Total Votes: {totalvotes}")
-    print("-----------------------------------")
+#    print(f"Total Votes: {totalvotes}")
+#    print("-----------------------------------")
 
     # 2. A complete list of candidates who received votes
     candidateslist = []
@@ -47,12 +47,12 @@ with open(electioncsv, 'r') as csvfile:
     correyscore = round(correywins / totalnames * 100, 3)
     otooleyscore = round(otooleywins / totalnames * 100, 3)
 
-    print(f"Khan: {khanscore}% ({khanwins})")
-    print(f"Correy: {correyscore}% ({correywins})")
-    print(f"Li: {liscore}% ({liwins})")
-    print(f"O'Tooley: {otooleyscore}% ({otooleywins})")
+#    print(f"Khan: {khanscore}% ({khanwins})")
+#    print(f"Correy: {correyscore}% ({correywins})")
+#    print(f"Li: {liscore}% ({liwins})")
+#    print(f"O'Tooley: {otooleyscore}% ({otooleywins})")
 
-    print("-----------------------------------")
+#    print("-----------------------------------")
 
     # 5. The winner of the election based on popular vote.
     canddict = {"Khan":khanscore, "Li":liscore, "Correy":correyscore, "O'Tooley":otooleyscore}
@@ -68,8 +68,36 @@ with open(electioncsv, 'r') as csvfile:
         v=list(d.values())
         k=list(d.keys())
         return k[v.index(max(v))]
-    print(f"Winner: {maxwinner(canddict)}")
-    print("-----------------------------------")
+#    print(f"Winner: {maxwinner(canddict)}")
+#    print("-----------------------------------")
+
+print(f"""Election Results
+-----------------------------------
+Total Votes: {totalvotes}
+-----------------------------------
+Khan: {khanscore}% ({khanwins})
+Correy: {correyscore}% ({correywins})
+Li: {liscore}% ({liwins})
+O'Tooley: {otooleyscore}% ({otooleywins})
+-----------------------------------
+Winner: {maxwinner(canddict)}
+-----------------------------------
+""")
+
+with open('electionresults.txt', 'w') as f:
+    print(f"""
+          Election Results
+          -----------------------------------
+          Total Votes: {totalvotes}
+          -----------------------------------
+          Khan: {khanscore}% ({khanwins})
+          Correy: {correyscore}% ({correywins})
+          Li: {liscore}% ({liwins})
+          O'Tooley: {otooleyscore}% ({otooleywins})
+          -----------------------------------
+          Winner: {maxwinner(canddict)}
+          -----------------------------------
+          """, file=f)
 
 ### BRAINSTORMING NOTES ###
 

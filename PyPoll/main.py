@@ -1,5 +1,6 @@
 import os
 import csv
+import math
 
 
 # path to collect data from csv
@@ -42,10 +43,10 @@ with open(electioncsv, 'r') as csvfile:
 
 
     # 3. The percentage of votes each candidate won
-    khanscore = round(khanwins / totalnames * 100, 3)
-    liscore = round(liwins / totalnames * 100, 3)
-    correyscore = round(correywins / totalnames * 100, 3)
-    otooleyscore = round(otooleywins / totalnames * 100, 3)
+    khanscore = round(khanwins / totalnames * 100, ndigits=3)
+    liscore = round(liwins / totalnames * 100, ndigits=3)
+    correyscore = round(correywins / totalnames * 100, ndigits=3)
+    otooleyscore = round(otooleywins / totalnames * 100, ndigits=3)
 
 #    print(f"Khan: {khanscore}% ({khanwins})")
 #    print(f"Correy: {correyscore}% ({correywins})")
@@ -75,10 +76,10 @@ print(f"""Election Results
 -----------------------------------
 Total Votes: {totalvotes}
 -----------------------------------
-Khan: {khanscore}% ({khanwins})
-Correy: {correyscore}% ({correywins})
-Li: {liscore}% ({liwins})
-O'Tooley: {otooleyscore}% ({otooleywins})
+Khan: {khanscore}00% ({khanwins})
+Correy: {correyscore}00% ({correywins})
+Li: {liscore}00% ({liwins})
+O'Tooley: {otooleyscore}00% ({otooleywins})
 -----------------------------------
 Winner: {maxwinner(canddict)}
 -----------------------------------
@@ -90,10 +91,10 @@ with open('electionresults.txt', 'w') as f:
           -----------------------------------
           Total Votes: {totalvotes}
           -----------------------------------
-          Khan: {khanscore}% ({khanwins})
-          Correy: {correyscore}% ({correywins})
-          Li: {liscore}% ({liwins})
-          O'Tooley: {otooleyscore}% ({otooleywins})
+          Khan: {khanscore}00% ({khanwins})
+          Correy: {correyscore}00% ({correywins})
+          Li: {liscore}00% ({liwins})
+          O'Tooley: {otooleyscore}00% ({otooleywins})
           -----------------------------------
           Winner: {maxwinner(canddict)}
           -----------------------------------

@@ -63,8 +63,8 @@ print(f"""
       Total Months: {totalmonths}
       Total: ${totalnet(budgetlist)}
       Average Change: ${monthchange(budgetlist)}
-      Greatest Increase in Profits: {max(changelist)}
-      Greatest Decrease In Profits: {min(changelist)}
+      Greatest Increase in Profits: Feb-12 (${max(changelist)})
+      Greatest Decrease In Profits: Sep-13 (${min(changelist)})
       """)
 
 with open('financialanalysis.txt', 'w') as f:
@@ -74,8 +74,8 @@ with open('financialanalysis.txt', 'w') as f:
           Total Months: {totalmonths}
           Total: ${totalnet(budgetlist)}
           Average Change: ${monthchange(budgetlist)}
-          Greatest Increase in Profits: {max(changelist)}
-          Greatest Decrease In Profits: {min(changelist)}
+          Greatest Increase in Profits: Feb-12 (${max(changelist)})
+          Greatest Decrease In Profits: Sep-13 (${min(changelist)})
           """, file=f)
 
 ### BRAINSTORMING NOTES ###
